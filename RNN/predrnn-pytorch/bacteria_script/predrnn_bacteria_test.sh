@@ -1,0 +1,32 @@
+export CUDA_VISIBLE_DEVICES=0
+cd ..
+python -u run.py \
+    --is_training 0 \
+    --device cuda \
+    --dataset_name mnist \
+    --train_data_paths /home/connor/GDrive/SCGSR/data/datasets/wells-1_microns-30_grayscale_red-train.npz \
+    --valid_data_paths /home/connor/GDrive/SCGSR/data/datasets/wells-1_microns-30_grayscale_red-valid.npz \
+    --save_dir checkpoints/bacteria_predrnn \
+    --gen_frm_dir results/bacteria_predrnn \
+    --model_name predrnn \
+    --reverse_input 1 \
+    --img_width 24 \
+    --img_channel 1 \
+    --input_length 7 \
+    --total_length 14 \
+    --num_hidden 128,128,128,128 \
+    --filter_size 5 \
+    --stride 1 \
+    --patch_size 4 \
+    --layer_norm 0 \
+    --scheduled_sampling 1 \
+    --sampling_stop_iter 50000 \
+    --sampling_start_value 1.0 \
+    --sampling_changing_rate 0.00002 \
+    --lr 0.0003 \
+    --batch_size 4 \
+    --max_iterations 80000 \
+    --display_interval 20 \
+    --test_interval 5000 \
+    --snapshot_interval 5000 \
+     --pretrained_model /home/connor/GDrive/SCGSR/predrnn-pytorch/models/bacteria.ckpt-5000
