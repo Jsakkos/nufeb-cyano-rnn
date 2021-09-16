@@ -1,0 +1,19 @@
+Setting up [LPIPS] perceptual loss: trunk [alex], v[0.1], spatial [off]
+Loading model from: /home/connor/miniconda3/lib/python3.8/site-packages/lpips/weights/v0.1/alex.pth
+Namespace(batch_size=1, dataset_name='mnist', decouple_beta=0.1, device='cuda', display_interval=100, filter_size=5, gen_frm_dir='results/predrnn/nufeb_interp-20-100-100_threshold_layers-64_lr-0.0003-test', img_channel=1, img_width=100, input_length=10, is_training=0, layer_norm=0, lr=0.0003, max_iterations=80000, model_name='predrnn', n_gpu=1, num_hidden='64,64,64,64', num_save_samples=20, patch_size=4, pretrained_model='results/predrnn/nufeb_interp-20-100-100_threshold_layers-64_lr-0.0003/model.ckpt-19000', r_exp_alpha=5000, r_sampling_step_1=25000, r_sampling_step_2=50000, reverse_input=1, reverse_scheduled_sampling=0, sampling_changing_rate=2e-05, sampling_start_value=1.0, sampling_stop_iter=50000, save_dir='results/predrnn/nufeb_interp-20-100-100_threshold_layers-64_lr-0.0003-test', scheduled_sampling=1, snapshot_interval=5000, stride=1, test_interval=5000, total_length=20, train_data_paths=' data/datasets/nufeb_interp-20-100-100_threshold-train.npz', valid_data_paths='data/datasets/nufeb_interp-20-100-100_threshold-test.npz', visual=0, visual_path='./decoupling_visual')
+Initializing models
+load model: results/predrnn/nufeb_interp-20-100-100_threshold_layers-64_lr-0.0003/model.ckpt-19000
+Traceback (most recent call last):
+  File "predrnn-pytorch/run.py", line 229, in <module>
+    test_wrapper(model)
+  File "predrnn-pytorch/run.py", line 207, in test_wrapper
+    model.load(args.pretrained_model)
+  File "/home/connor/GDrive/SCGSR/papers/ABM_cyanobacteria/nufeb-cyano-rnn/RNN/predrnn-pytorch/core/models/model_factory.py", line 33, in load
+    stats = torch.load(checkpoint_path)
+  File "/home/connor/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 594, in load
+    with _open_file_like(f, 'rb') as opened_file:
+  File "/home/connor/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 230, in _open_file_like
+    return _open_file(name_or_buffer, mode)
+  File "/home/connor/miniconda3/lib/python3.8/site-packages/torch/serialization.py", line 211, in __init__
+    super(_open_file, self).__init__(open(name, mode))
+FileNotFoundError: [Errno 2] No such file or directory: 'results/predrnn/nufeb_interp-20-100-100_threshold_layers-64_lr-0.0003/model.ckpt-19000'
